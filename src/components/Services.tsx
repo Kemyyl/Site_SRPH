@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Home, Hammer, RefreshCw, Building2, TreePine, Paintbrush } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const Services = () => {
   const services = [
@@ -68,25 +70,30 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow"
             >
-              <div className="text-amber-700 mb-4">
-                {service.icon}
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 mb-4 leading-relaxed">
-                {service.description}
-              </p>
-              <ul className="space-y-2">
-                {service.features.map((feature) => (
-                  <li key={feature} className="text-gray-700 flex items-start gap-2">
-                    <span className="text-amber-700 mt-1">•</span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <Card className="h-full hover:shadow-2xl transition-all hover:-translate-y-2 border-2 border-transparent hover:border-amber-200">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-gradient-to-br from-amber-100 to-amber-200 rounded-xl flex items-center justify-center mb-4">
+                    <div className="text-amber-700">
+                      {service.icon}
+                    </div>
+                  </div>
+                  <CardTitle className="text-2xl">{service.title}</CardTitle>
+                  <CardDescription className="text-base leading-relaxed">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="text-gray-700 flex items-start gap-2">
+                        <span className="text-amber-700 mt-1 font-bold">✓</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>
@@ -96,23 +103,30 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center"
+          className="mt-16"
         >
-          <div className="bg-amber-700 text-white p-8 rounded-lg max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Un projet en tête ?
-            </h3>
-            <p className="text-lg mb-6">
-              Contactez-nous pour un devis gratuit et personnalisé. Nous étudions ensemble votre projet
-              et vous proposons les meilleures solutions adaptées à vos besoins et votre budget.
-            </p>
-            <a
-              href="tel:0667228800"
-              className="inline-block bg-white text-amber-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-            >
-              Appelez-nous au 06 67 22 88 00
-            </a>
-          </div>
+          <Card className="bg-gradient-to-br from-amber-600 to-amber-800 text-white border-none shadow-2xl max-w-4xl mx-auto">
+            <CardHeader className="text-center pb-4">
+              <CardTitle className="text-3xl md:text-4xl text-white mb-4">
+                Un projet en tête ?
+              </CardTitle>
+              <CardDescription className="text-amber-50 text-lg">
+                Contactez-nous pour un devis gratuit et personnalisé. Nous étudions ensemble votre projet
+                et vous proposons les meilleures solutions adaptées à vos besoins et votre budget.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex justify-center pb-8">
+              <Button
+                size="lg"
+                className="bg-white text-amber-700 hover:bg-amber-50 shadow-lg"
+                asChild
+              >
+                <a href="tel:0667228800">
+                  Appelez-nous au 06 67 22 88 00
+                </a>
+              </Button>
+            </CardContent>
+          </Card>
         </motion.div>
       </div>
     </section>
