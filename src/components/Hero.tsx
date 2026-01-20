@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone, Star, Award, Shield } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -11,109 +10,102 @@ const Hero = () => {
     }
   };
 
+  const clients = [
+    { name: 'Client 1', logo: 'C1' },
+    { name: 'Client 2', logo: 'C2' },
+    { name: 'Client 3', logo: 'C3' },
+    { name: 'Client 4', logo: 'C4' },
+    { name: 'Client 5', logo: 'C5' },
+  ];
+
   return (
     <section
       id="accueil"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center justify-center pt-20 bg-gradient-to-b from-gray-50 to-white"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-amber-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-          <div className="absolute top-40 right-10 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="container mx-auto px-4 py-32">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Badges */}
-          <motion.div
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-wrap gap-3 justify-center mb-8"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight"
           >
-            <Badge variant="default" className="text-sm px-4 py-2">
-              <Star className="w-4 h-4 mr-2" />
-              Artisan Qualifié
-            </Badge>
-            <Badge variant="outline" className="text-sm px-4 py-2 bg-white">
-              <Award className="w-4 h-4 mr-2" />
-              15+ ans d'expérience
-            </Badge>
-            <Badge variant="outline" className="text-sm px-4 py-2 bg-white">
-              <Shield className="w-4 h-4 mr-2" />
-              Garantie décennale
-            </Badge>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight"
-          >
-            Votre Expert en
-            <span className="block mt-2 bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent">
-              Charpente & Bâtiment
-            </span>
+            L'Expert en{' '}
+            <span className="text-amber-600">Charpente</span> au service de
+            votre projet, des{' '}
+            <span className="text-amber-600">solutions performantes</span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto"
           >
-            Entreprise de charpente traditionnelle et rénovation basée à Villeurbanne.
-            <span className="block mt-2 font-semibold text-amber-800">
-              Savoir-faire artisanal et qualité garantie depuis des années.
-            </span>
+            Après plus de 15 ans d'expertise dans le bâtiment, SRPH intègre
+            aujourd'hui le{' '}
+            <a href="#apropos" className="text-amber-600 hover:underline">
+              savoir-faire artisanal
+            </a>{' '}
+            pour créer des solutions performantes. Nous développons des{' '}
+            <a href="#services" className="text-amber-600 hover:underline">
+              projets sur mesure
+            </a>{' '}
+            et des stratégies durables (
+            <a href="#services" className="text-amber-600 hover:underline">
+              charpente
+            </a>
+            ,{' '}
+            <a href="#services" className="text-amber-600 hover:underline">
+              rénovation
+            </a>
+            ,{' '}
+            <a href="#services" className="text-amber-600 hover:underline">
+              extension
+            </a>
+            , etc.) qui ont un impact fort sur votre habitat.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-24"
           >
-            <Button size="lg" onClick={scrollToContact}>
-              Demander un devis
-              <ArrowRight className="ml-2" size={20} />
-            </Button>
-
-            <Button variant="outline" size="lg" asChild>
-              <a href="tel:0667228800">
-                <Phone size={20} />
-                06 67 22 88 00
-              </a>
+            <Button
+              size="lg"
+              onClick={scrollToContact}
+              className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white shadow-lg hover:shadow-xl transition-all"
+            >
+              <ArrowRight className="mr-2" size={20} />
+              Discutons de votre projet
             </Button>
           </motion.div>
 
+          {/* Client Trust Section */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="border-t border-gray-200 pt-12"
           >
-            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-amber-100 hover:shadow-2xl transition-all hover:-translate-y-1">
-              <h3 className="text-4xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-2">15+</h3>
-              <p className="text-gray-700 font-medium">Années d'expérience</p>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-amber-100 hover:shadow-2xl transition-all hover:-translate-y-1">
-              <h3 className="text-4xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-2">200+</h3>
-              <p className="text-gray-700 font-medium">Projets réalisés</p>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-amber-100 hover:shadow-2xl transition-all hover:-translate-y-1">
-              <h3 className="text-4xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-2">100%</h3>
-              <p className="text-gray-700 font-medium">Clients satisfaits</p>
+            <p className="text-sm text-gray-500 uppercase tracking-wide mb-8 font-medium">
+              Approuvé par nos clients
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 opacity-60">
+              {clients.map((client, index) => (
+                <div
+                  key={index}
+                  className="w-24 h-12 flex items-center justify-center text-gray-400 font-semibold text-lg border border-gray-200 rounded-lg hover:border-amber-300 hover:text-amber-600 transition-all"
+                >
+                  {client.logo}
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
     </section>
   );
 };
